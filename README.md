@@ -1,3 +1,7 @@
+# react-bolier-plate
+
+ReactJS Bolier Plate (axios, redux, router, sass )
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
