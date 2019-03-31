@@ -1,0 +1,51 @@
+/** Media Queries **/
+@mixin phone {
+  @media only screen and (min-width: #{$phone}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin button($color) {
+  background-color: $color;
+  padding: 1rem;
+  display: block;
+  text-align: center;
+  color: $white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: darken($color, 10);
+  }
+}
+
+@mixin inline-form() {
+  border: none !important;
+  border-bottom: 1px solid #776654 !important;
+  border-radius: 0 !important;
+}
+
+@mixin box-sizing($box-model) {
+  box-sizing: $box-model;
+}
+@mixin gradient($color1, $color2) {
+  background: linear-gradient(to right, $color1 0%, $color2 100%);
+}
+@mixin box-shadow($box-shadow) {
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}

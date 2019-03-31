@@ -1,0 +1,58 @@
+@import "./modules/variables";
+@import "./modules/mixins";
+
+html {
+  @include box-sizing(border-box);
+  height: 100% !important;
+}
+#root {
+  height: 100%;
+}
+*,
+*:after,
+*:before {
+  @include box-sizing(inherit);
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: $mainFont;
+  height: 100%;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.button {
+  color: $white;
+  // @include button($primary);
+  &.primary {
+    background-color: $primary !important;
+  }
+  &.ui.primary-outline.basic.button.round {
+    border-color: $primary !important;
+    color: $primary !important;
+    border: none;
+    color: #fff !important;
+    border-radius: 50px;
+    border-color: #fff !important;
+    &.text-sm {
+      font-size: 0.8rem;
+    }
+  }
+
+  &.ui.primary-outline.basic.button.round:hover {
+    background-color: transparent !important;
+    border-color: #fff !important;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}

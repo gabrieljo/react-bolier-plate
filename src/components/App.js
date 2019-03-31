@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import LoginScreen from "../screens/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
-
+import { logout, setLoginStatus } from "../moduels/actions/authActions";
 const App = props => {
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const auth = JSON.parse(localStorage.getItem("auth"));
+
+    if (auth && auth.token) {
+      props.setLoginStatus(true);
+    } else {
+      props.setLoginStatus(false);
+    }
+  }, [token]);
+
   return (
     <BrowserRouter>
       {props.isLoggedIn ? (
-        <div>{LoggedInRoutes()}</div>
+        <div className="app">{LoggedInRoutes()}</div>
       ) : (
-        <div>{LoggedOutRoutes()}</div>
+        <div className="page-wrapper">{LoggedOutRoutes()}</div>
       )}
     </BrowserRouter>
   );
@@ -36,5 +48,5 @@ export default connect(
   state => ({
     isLoggedIn: state.auth.get("isLoggedIn")
   }),
-  null
+  { logout, setLoginStatus }
 )(App);

@@ -1,0 +1,39 @@
+@import "../../../styles/modules/variables";
+
+.sidebar {
+  flex: 0 0 12rem;
+  background-color: $darkGray;
+  color: $white;
+  padding: 1rem 0.5rem 0 0.5rem;
+  .user {
+    border: 1px solid $white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    .name {
+      font-size: 1.2rem;
+    }
+    .title {
+      font-size: 0.8rem;
+      font-weight: 100;
+      color: $gray;
+    }
+  }
+
+  .main-menu {
+    margin-top: 1rem;
+    .menu {
+      list-style: none;
+      padding: 0;
+      > li {
+        padding: 0.5rem;
+        cursor: pointer;
+        &:hover {
+          background-color: $gray;
+        }
+        a {
+          color: inherit;
+        }
+      }
+    }
+  }
+}
